@@ -381,7 +381,7 @@
   },
   "il": {
     "name": "Israel",
-    "neighbors": ["eg", "jo", "lb", "sy"]
+    "neighbors": ["eg", "jo", "lb", "sy", "ps"]
   },
   "it": {
     "name": "Italy",
