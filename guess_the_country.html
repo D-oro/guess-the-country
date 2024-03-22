@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Country</title>
+    <link rel="stylesheet" href="guess_the_country.css">
+</head>
+<main>
+<body>
+    <div class="container">
+        <h1>Guess the Country</h1>
+        <img id="countryImage" src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/XXX/vector.svg" alt="Country Outline">
+        <button onclick="window.location.reload();" class="next">Next Country <span aria-hidden="true" class="icon">&nbsp;🔄</span></button>   
+        <br>
+        <span class="input-container">
+        <label for="userGuess">Enter your guess:</label>
+        <input type="text" id="userGuess" placeholder="Enter your guess">
+        <button onclick="checkGuess()" class="check">Check<span aria-hidden="true" class="icon">&nbsp;🌍</span></button>
+        </span>
+        <p id="result" role="status" aria-live="polite"></p>
+        <p id="correctAnswer" style="display:none;"></p>
+        <span class="button-container">
+        <button onclick="showFirstLetter()">First Letter</button>
+        <button onclick="showNeighbours()">Show Neighbours</button>
+        </span>
+        <p id="firstLetter" style="display:none;"></p>
+        <p id="neighbours" style="display:none;"></p>
+    </div>
+
+    <script>
+        let correctCountryName;
+        let randomCountryCode;
+        let data;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchCountryData();
+        });
+
+        function fetchCountryData() {
+        // Fetch JSON data
+        fetch('data.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                data = jsonData;
+
+                // Get all country codes
+                const countryCodes = Object.keys(data);
+
+                // Get a random country code
+                const randomIndex = Math.floor(Math.random() * countryCodes.length);
+                randomCountryCode = countryCodes[randomIndex];
+
+                // Save the correct country name
+                correctCountryName = data[randomCountryCode].name;
+
+                // Replace "XXX" with the random country code in the image src
+                const countryImage = document.getElementById('countryImage');
+                countryImage.src = countryImage.src.replace('XXX', randomCountryCode);
+                
+                // Set alt attribute to the name of the country
+                countryImage.alt = correctCountryName;
+            })
+            .catch(error => {
+                console.error('Error fetching JSON data:', error);
+            });
+    }
+
+        window.checkGuess = function() {
+            const userGuess = document.getElementById('userGuess').value.trim().toLowerCase();
+            const resultMessage = document.getElementById('result');
+            const correctAnswer = document.getElementById('correctAnswer');
+
+            correctAnswer.textContent = `The correct answer is ${correctCountryName}.`;
+            correctAnswer.style.display = 'block';
+
+            if (userGuess === correctCountryName.toLowerCase()) {
+                resultMessage.textContent = 'Correct! You guessed the country name.';
+                resultMessage.style.color = '#2c6e30';
+            } else {
+                resultMessage.textContent = 'Incorrect! Try again.'
+                resultMessage.style.color = '#c83247';
+            }
+        };
+
+        window.showFirstLetter = function() {
+            const firstLetterDisplay = document.getElementById('firstLetter');
+            firstLetterDisplay.textContent = `First letter of the country name: ${correctCountryName.charAt(0).toUpperCase()}`;
+            firstLetterDisplay.style.display = 'block';
+        };
+
+        window.showNeighbours = function() {
+          const neighboursDisplay = document.getElementById('neighbours');
+          const neighbourCodes = data[randomCountryCode].neighbors;
+          
+          if (neighbourCodes.length === 0) {
+              neighboursDisplay.innerHTML = `<span>Neighbouring countries: Just water<span aria-hidden="true" style="font-size: 70px">&nbsp;🌊</span></span>`;          } else {
+              const neighbourNames = neighbourCodes.map(code => data[code].name);
+              const neighbourImages = neighbourCodes.map(code => `<img src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/${code}/vector.svg" alt="${data[code].name}" style="max-height: 70px; margin-right: 5px;">`);
+              neighboursDisplay.innerHTML = `Neighbouring countries: ${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
+          }
+          neighboursDisplay.style.display = 'block';
+      };
+    </script>
+
+    <script>
+        // Clear input field on page reload
+        window.onload = function() {
+            document.getElementById('userGuess').value = '';
+        };
+    </script>
+</body>
+</main>
+</html>
