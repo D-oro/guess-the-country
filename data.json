@@ -469,7 +469,7 @@
   },
   "mo": {
     "name": "Macau",
-    "neighbors": []
+    "neighbors": ["cn"]
   },
   "mg": {
     "name": "Madagascar",
