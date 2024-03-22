@@ -3,22 +3,23 @@ body {
   background-color: #f5f5f5;
   margin: 0;
   padding: 0;
+  font-size: 1.6rem;
 }
 .container {
-  max-width: 800px;
+  max-width: 90vw;
   margin: auto;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* gap: 0.1rem; */
 }
 h1, h2, p, label {
   color: #333; /* Dark text color */
 }
 img {
   height: 40vh;
+  max-width: 80vw;
   object-fit: contain;
   border: 2px solid #ddd;
   border-radius: 8px;
@@ -34,7 +35,7 @@ img {
   align-items: center;
 }
 input {
-  height: 30px;
+  height: 3rem;
 }
 .button-container {
   display: flex;
@@ -47,14 +48,14 @@ button {
   background-color: var(--grey-500);
   color: white; 
   border: none;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  padding: 0 10px;
+  min-height: 4rem;
+  padding: 0 1rem;
 }
 button:hover {
   background-color: var(--grey-400);
@@ -73,7 +74,7 @@ button.next:hover {
   background-color: var(--blue-400);
 }
 .icon{
-  font-size: 30px;
+  font-size: 3rem;
   margin: 0;
   padding: 0;
 }
@@ -81,7 +82,19 @@ p {
   margin: 0.2rem;
 }
 
+@media only screen and (max-width: 767px) {
+  .input-container {
+    flex-direction: column;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+}
+
 :root {
+  font-size: 10px;
+
   --purple-500: #8A3A8A; 
   --purple-400: #9A4A9A; 
   --blue-500: #4C5AAA; 
