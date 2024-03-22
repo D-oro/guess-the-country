@@ -171,6 +171,10 @@
     "name": "Costa Rica",
     "neighbors": ["ni", "pa"]
   },
+  "ci": {
+    "name": "Ivory Coast",
+    "neighbors": ["lr", "gn", "gh", "bf", "ml"]
+  },
   "hr": {
     "name": "Croatia",
     "neighbors": ["ba", "hu", "me", "rs", "si"]
@@ -485,7 +489,7 @@
   },
   "ml": {
     "name": "Mali",
-    "neighbors": ["bf", "ci", "ne", "sn", "gm", "gn", "ci"]
+    "neighbors": ["bf", "ci", "ne", "sn", "gm", "gn"]
   },
   "mt": {
     "name": "Malta",
