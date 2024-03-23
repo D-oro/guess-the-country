@@ -9,14 +9,14 @@
 </head>
 <body>
 <nav>
-    <a href="/guess-the-country/index.html">Guess</a>
+    <a href="/guess-the-country/index.html" class="active">Guess</a>
     <a href="/guess-the-country/find.html">Find</a>
 </nav>
 <main>
     <div class="container">
         <h1>Guess the Country</h1>
         <img id="countryImage" src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/XXX/vector.svg" alt="Country Outline">
-        <button onclick="window.location.reload();" class="next">Next Country <span aria-hidden="true" class="icon">&nbsp;🔄</span></button>   
+        <button onclick="window.location.reload();" class="next">Next Country<span aria-hidden="true" class="icon">&nbsp;🔄</span></button>   
         <span class="input-container">
         <label for="userGuess">Enter your guess:</label>
         <input type="text" id="userGuess" onkeydown="if (event.keyCode === 13) checkGuess()">
@@ -24,12 +24,13 @@
         </span>
         <p id="result" role="status" aria-live="polite"></p>
         <p id="correctAnswer" style="display:none;"></p>
-        <br>
         <span class="button-container">
-        <button onclick="showFirstLetter()">First Letter</button>
+            <span class="first-letter-container">
+                <button onclick="showFirstLetter()">First Letter</button>
+                <p id="firstLetter" style="display:none;"></p>
+            </span>
         <button onclick="showNeighbours()">Show Neighbours</button>
         </span>
-        <p id="firstLetter" style="display:none;"></p>
         <p id="neighbours" style="display:none;"></p>
     </div>
 
@@ -80,17 +81,17 @@
             correctAnswer.style.display = 'block';
 
             if (userGuess === correctCountryName.toLowerCase()) {
-                resultMessage.textContent = 'Correct! You guessed the country name.';
+                resultMessage.innerHtml = 'Correct! You guessed the country name.';
                 resultMessage.style.color = '#2c6e30';
             } else {
-                resultMessage.textContent = 'Incorrect! Try again.'
+                resultMessage.textContent = 'Nope.'
                 resultMessage.style.color = '#c83247';
             }
         };
 
         window.showFirstLetter = function() {
             const firstLetterDisplay = document.getElementById('firstLetter');
-            firstLetterDisplay.textContent = `First letter of the country name: ${correctCountryName.charAt(0).toUpperCase()}`;
+            firstLetterDisplay.textContent = `${correctCountryName.charAt(0).toUpperCase()}`;
             firstLetterDisplay.style.display = 'block';
         };
 
