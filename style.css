@@ -171,6 +171,11 @@ p {
   .input-container {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0;
+  }
+
+  button.next {
+    margin-left: 0;
   }
 
   h1 {
