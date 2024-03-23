@@ -432,7 +432,7 @@
     "neighbors": ["cn", "kz", "tj", "uz"]
   },
   "la": {
-    "name": "Lao",
+    "name": "Laos",
     "neighbors": ["cn", "mm", "kh", "th", "vn"]
   },
   "lv": {
@@ -474,6 +474,10 @@
   "mg": {
     "name": "Madagascar",
     "neighbors": ["km", "mu", "mz", "re"]
+  },
+  "mk": {
+    "name": "North Macedonia",
+    "neighbors": ["al", "bg", "gr", "rs"]
   },
   "mw": {
     "name": "Malawi",

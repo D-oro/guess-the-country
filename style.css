@@ -22,8 +22,8 @@ img {
   max-width: 80vw;
   object-fit: contain;
   border: 2px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.8rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   margin: 0.2rem;
 }
 .input-container {
@@ -31,7 +31,7 @@ img {
   flex-direction: row;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 0.2rem;
+  margin: 0.2rem;
   align-items: center;
 }
 input {
@@ -68,7 +68,7 @@ button.check:hover {
 }
 button.next {
   background-color: var(--blue-500);
-  margin-bottom: 1rem;
+  margin: 0.4rem;
 }
 button.next:hover {
   background-color: var(--blue-400);
@@ -81,14 +81,25 @@ button.next:hover {
 p {
   margin: 0.2rem;
 }
+.sea-icon {
+  font-size: 7rem;
+}
 
 @media only screen and (max-width: 767px) {
+  img {
+    height: 30vh;
+  }
+
   .input-container {
     flex-direction: column;
   }
 
   .button-container {
     flex-direction: column;
+  }
+
+  .sea-icon {
+    font-size: 3rem;
   }
 }
 
