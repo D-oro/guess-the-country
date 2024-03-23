@@ -21,6 +21,8 @@ nav{
 }
 a{
   padding: 2rem;
+  background-color: var(--blue-100);
+  text-align: left;
 }
 a:hover{
   background-color: var(--blue-200);
@@ -31,6 +33,7 @@ a:focus-visible {
 }
 .active {
   background-color: var(--blue-100);
+  border-left: 0.5rem solid var(--blue-300);
 }
 main{
   display: flex;
@@ -187,6 +190,7 @@ p {
   --purple-100: #EBD2EB; 
   --blue-500: #4C5AAA; 
   --blue-400: #5C6ABA;  
+  --blue-300: #9099CF; 
   --blue-200: #CED2E8; 
   --blue-100: #DEE1F0;
   --grey-500: #4C5A5A; 
