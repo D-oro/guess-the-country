@@ -19,7 +19,7 @@
         <button onclick="window.location.reload();" class="next">Next Country <span aria-hidden="true" class="icon">&nbsp;🔄</span></button>   
         <span class="input-container">
         <label for="userGuess">Enter your guess:</label>
-        <input type="text" id="userGuess" placeholder="Enter your guess">
+        <input type="text" id="userGuess" onkeydown="if (event.keyCode === 13) checkGuess()">
         <button onclick="checkGuess()" class="check">Check<span aria-hidden="true" class="icon">&nbsp;🌍</span></button>
         </span>
         <p id="result" role="status" aria-live="polite"></p>

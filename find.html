@@ -33,6 +33,12 @@
     <script>
         let data;
 
+        // Function to handle search
+        function handleSearch() {
+            fetchCountryData();
+        }
+
+        // Function to fetch country data
         function fetchCountryData() {
             const inputCountry = document.getElementById('countryInput').value.trim().toLowerCase();
             const notFoundMessage = document.getElementById('not-found');
@@ -69,6 +75,7 @@
                 });
         }
 
+        // Function to display country information
         function displayCountryInfo(countryCode) {
             const countryImage = document.getElementById('countryImage');
             const countryName = document.getElementById('countryName');
@@ -89,6 +96,13 @@
             }
             neighboursDisplay.style.display = 'block';
         }
+
+        // Event listener for Enter key press on input field
+        document.getElementById('countryInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                handleSearch();
+            }
+        });
     </script>
   </main>
 </body>
