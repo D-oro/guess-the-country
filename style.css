@@ -5,6 +5,17 @@ body {
   padding: 0;
   font-size: 1.6rem;
 }
+nav{
+  display: flex;
+  gap: 2rem;
+}
+a{
+  padding: 1rem;
+  background-color: var(--blue-100);
+}
+a:hover{
+  background-color: var(--blue-200);
+}
 .container {
   max-width: 90vw;
   margin: auto;
@@ -81,6 +92,10 @@ button.next:hover {
 p {
   margin: 0.2rem;
 }
+#countryName{
+  font-size: 2rem;
+  font-weight: bold;
+}
 .sea-icon {
   font-size: 7rem;
 }
@@ -110,6 +125,8 @@ p {
   --purple-400: #9A4A9A; 
   --blue-500: #4C5AAA; 
   --blue-400: #5C6ABA;  
+  --blue-200: #BECEEE; 
+  --blue-100: #CFCFFF; 
   --grey-500: #4C5A5A; 
   --grey-400: #5C6A6A; 
   --green-500: #15B5A5;

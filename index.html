@@ -6,8 +6,12 @@
     <title>Guess the Country</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<main>
 <body>
+<nav>
+    <a href="/index.html">Guess</a>
+    <a href="/find.html">Find</a>
+</nav>
+<main>
     <div class="container">
         <h1>Guess the Country</h1>
         <img id="countryImage" src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/XXX/vector.svg" alt="Country Outline">
@@ -94,10 +98,10 @@
           const neighbourCodes = data[randomCountryCode].neighbors;
           
           if (neighbourCodes.length === 0) {
-              neighboursDisplay.innerHTML = `<span>Neighbouring countries: Just water<span aria-hidden="true" class="sea-icon">&nbsp;🌊</span></span>`;          } else {
+              neighboursDisplay.innerHTML = `<span>Neighbours: Just water<span aria-hidden="true" class="sea-icon">&nbsp;🌊</span></span>`;          } else {
               const neighbourNames = neighbourCodes.map(code => data[code].name);
               const neighbourImages = neighbourCodes.map(code => `<img src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/${code}/vector.svg" alt="${data[code].name}" style="max-height: 70px; margin-right: 5px;">`);
-              neighboursDisplay.innerHTML = `Neighbouring countries: ${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
+              neighboursDisplay.innerHTML = `Neighbours: ${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
           }
           neighboursDisplay.style.display = 'block';
       };
@@ -109,6 +113,6 @@
             document.getElementById('userGuess').value = '';
         };
     </script>
-</body>
 </main>
+</body>
 </html>

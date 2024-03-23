@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find the Country</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="/index.html">Guess</a>
+    <a href="/find.html">Find</a>
+  </nav>
+  <main>
+    <div class="container">
+        <h1>Find Countries</h1>
+        <span class="input-container">
+            <label for="countryInput">Enter a country:</label>
+            <input type="text" id="countryInput">
+            <button onclick="fetchCountryData()" class="next">Find Country <span aria-hidden="true" class="icon">&nbsp;🔍</span></button>
+        </span>
+        <p id="not-found" style="display: none;">Couldn't find the country, try a different spelling</p>
+        <div id="countryDetails" style="display: none;">
+            <img id="countryImage" src="" alt="Country Outline">
+            <div id="countryInfo">
+                <p id="countryName"></p>
+                <p id="neighbours" style="display:none;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let data;
+
+        function fetchCountryData() {
+            const inputCountry = document.getElementById('countryInput').value.trim().toLowerCase();
+            const notFoundMessage = document.getElementById('not-found');
+
+            // Hide the error message initially
+            notFoundMessage.style.display = 'none';
+            
+            // Check if the input is empty
+            if (inputCountry === "") {
+                notFoundMessage.style.display = 'block';
+                return;
+            }
+
+            // Fetch JSON data
+            fetch('data.json')
+                .then(response => response.json())
+                .then(jsonData => {
+                    data = jsonData;
+
+                    // Find the country code for the input country name
+                    const countryCode = Object.keys(data).find(key => data[key].name.toLowerCase() === inputCountry);
+
+                    if (countryCode) {
+                        // Display country information
+                        displayCountryInfo(countryCode);
+                        document.getElementById('countryDetails').style.display = 'block';
+                    } else {
+                        // Show the error message if the country couldn't be found
+                        notFoundMessage.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON data:', error);
+                });
+        }
+
+        function displayCountryInfo(countryCode) {
+            const countryImage = document.getElementById('countryImage');
+            const countryName = document.getElementById('countryName');
+            const neighboursDisplay = document.getElementById('neighbours');
+
+            countryImage.src = `https://staging.teuteuf-assets.pages.dev/data/worldle/countries/${countryCode}/vector.svg`;
+            countryImage.alt = data[countryCode].name;
+            countryName.textContent = data[countryCode].name;
+
+            // Show neighboring countries
+            const neighbourCodes = data[countryCode].neighbors;
+            if (neighbourCodes.length === 0) {
+                neighboursDisplay.innerHTML = `<span>Neighbours: Just water<span aria-hidden="true" class="sea-icon">&nbsp;🌊</span></span>`;
+            } else {
+                const neighbourNames = neighbourCodes.map(code => data[code].name);
+                const neighbourImages = neighbourCodes.map(code => `<img src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/${code}/vector.svg" alt="${data[code].name}" style="max-height: 70px; margin-right: 5px;">`);
+                neighboursDisplay.innerHTML = `Neighbours: ${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
+            }
+            neighboursDisplay.style.display = 'block';
+        }
+    </script>
+  </main>
+</body>
+</html>
