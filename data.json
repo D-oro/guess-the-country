@@ -47,6 +47,10 @@
     "name": "Bahamas",
     "neighbors": []
   },
+  "bd": {
+    "name": "Bangladesh",
+    "neighbors": ["in"]
+  },
   "bb": {
     "name": "Barbados",
     "neighbors": []
