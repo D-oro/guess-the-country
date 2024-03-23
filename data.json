@@ -47,6 +47,10 @@
     "name": "Bahamas",
     "neighbors": []
   },
+  "bh": {
+    "name": "Bahrain",
+    "neighbors": ["qa", "sa"]
+  },
   "bd": {
     "name": "Bangladesh",
     "neighbors": ["in"]
@@ -657,7 +661,7 @@
   },
   "qa": {
     "name": "Qatar",
-    "neighbors": ["sa"]
+    "neighbors": ["sa", "bh"]
   },
   "ro": {
     "name": "Romania",
@@ -717,7 +721,7 @@
   },
   "sa": {
     "name": "Saudi Arabia",
-    "neighbors": ["iq", "jo", "kw", "om", "qa", "ae", "ye"]
+    "neighbors": ["iq", "jo", "kw", "om", "qa", "ae", "ye", "bh"]
   },
   "sn": {
     "name": "Senegal",
