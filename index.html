@@ -102,10 +102,10 @@
           const neighbourCodes = data[randomCountryCode].neighbors;
           
           if (neighbourCodes.length === 0) {
-              neighboursDisplay.innerHTML = `<span>Neighbours: Just water<span aria-hidden="true" class="sea-icon">&nbsp;🌊</span></span>`;          } else {
+              neighboursDisplay.innerHTML = `<span>Just water<span aria-hidden="true" class="sea-icon">&nbsp;🌊</span></span>`;          } else {
               const neighbourNames = neighbourCodes.map(code => data[code].name);
               const neighbourImages = neighbourCodes.map(code => `<img src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/${code}/vector.svg" alt="${data[code].name}" style="max-height: 70px; margin-right: 5px;">`);
-              neighboursDisplay.innerHTML = `Neighbours: ${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
+              neighboursDisplay.innerHTML = `${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
           }
           neighboursDisplay.style.display = 'block';
       };

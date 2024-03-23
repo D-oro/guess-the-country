@@ -13,7 +13,7 @@
     <a href="/guess-the-country/find.html" class="active">Find</a>
   </nav>
   <main>
-    <div class="container">
+    <div class="find-container">
         <h1>Find the Country</h1>
         <span class="input-container">
             <label for="countryInput">Enter a country:</label>
@@ -21,11 +21,11 @@
             <button onclick="fetchCountryData()" class="next">Find Country <span aria-hidden="true" class="icon">&nbsp;🔍</span></button>
         </span>
         <p id="not-found" style="display: none;">Couldn't find the country, try a different spelling</p>
-        <div id="countryDetails" style="display: none;">
+        <div class="country-details" id="countryDetails" style="display: none;">
             <img id="countryImage" src="" alt="Country Outline">
             <div id="countryInfo">
                 <p id="countryName"></p>
-                <p id="neighbours" style="display:none;"></p>
+                <p class="neighbours" id="neighbours" style="display:none;"></p>
             </div>
         </div>
     </div>
@@ -88,11 +88,11 @@
             // Show neighboring countries
             const neighbourCodes = data[countryCode].neighbors;
             if (neighbourCodes.length === 0) {
-                neighboursDisplay.innerHTML = `<span>Neighbours: Just water<span aria-hidden="true" class="sea-icon">&nbsp;🌊</span></span>`;
+                neighboursDisplay.innerHTML = `<span>Just water<span aria-hidden="true" class="sea-icon">&nbsp;🌊</span></span>`;
             } else {
                 const neighbourNames = neighbourCodes.map(code => data[code].name);
                 const neighbourImages = neighbourCodes.map(code => `<img src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/${code}/vector.svg" alt="${data[code].name}" style="max-height: 70px; margin-right: 5px;">`);
-                neighboursDisplay.innerHTML = `Neighbours: ${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
+                neighboursDisplay.innerHTML = `${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
             }
             neighboursDisplay.style.display = 'block';
         }

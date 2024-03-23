@@ -138,7 +138,6 @@ button.check:focus-visible {
 button.next {
   background-color: var(--blue-500);
   margin: 0.4rem;
-  /* flex-direction: column; */
 }
 button.next:hover {
   background-color: var(--blue-400);
@@ -158,6 +157,17 @@ p {
   font-size: 2rem;
   font-weight: bold;
 }
+.find-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* align-items: flex-start; */
+  justify-content: center;
+  width: 100%;
+}
+.country-details {
+  text-align: center;
+}
 .sea-icon {
   font-size: 7rem;
 }
@@ -171,7 +181,7 @@ p {
   .input-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0;
+    gap: 0.2rem;
   }
 
   button.next {
