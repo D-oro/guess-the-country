@@ -477,11 +477,11 @@
   },
   "mw": {
     "name": "Malawi",
-    "neighbors": ["mz", "mz", "zm"]
+    "neighbors": ["tz","mz", "zm"]
   },
   "my": {
     "name": "Malaysia",
-    "neighbors": ["bn", "id", "th"]
+    "neighbors": ["sg", "bn", "id", "th"]
   },
   "mv": {
     "name": "Maldives",
@@ -705,7 +705,7 @@
   },
   "st": {
     "name": "Sao Tome and Principe",
-    "neighbors": []
+    "neigfhbors": []
   },
   "sa": {
     "name": "Saudi Arabia",
@@ -729,7 +729,7 @@
   },
   "sg": {
     "name": "Singapore",
-    "neighbors": []
+    "neighbors": ["my"]
   },
   "sk": {
     "name": "Slovakia",
