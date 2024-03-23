@@ -35,8 +35,14 @@ a:focus-visible {
 main{
   display: flex;
 }
-.container {
-  max-width: 90vw;
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+}
+.align-left {
   margin: auto;
   text-align: center;
   display: flex;
@@ -145,7 +151,7 @@ button.next:focus-visible {
 p {
   margin: 0.2rem;
 }
-#countryName{
+#countryName {
   font-size: 2rem;
   font-weight: bold;
 }
