@@ -83,7 +83,7 @@
             correctAnswer.style.display = 'block';
 
             if (userGuess === correctCountryName.toLowerCase()) {
-                resultMessage.innerHtml = 'Correct! You guessed the country name.';
+                resultMessage.textContent = 'Correct! You guessed the country name.';
                 resultMessage.style.color = '#2c6e30';
             } else {
                 resultMessage.textContent = 'Nope.'
