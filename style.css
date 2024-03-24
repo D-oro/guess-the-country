@@ -18,6 +18,7 @@ nav{
   max-width: fit-content;
   position: absolute;
   right: 0;
+  top: 0;
 }
 a{
   padding: 2rem;
