@@ -92,7 +92,7 @@
             } else {
                 const neighbourNames = neighbourCodes.map(code => data[code].name);
                 const neighbourImages = neighbourCodes.map(code => `<img src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/${code}/vector.svg" alt="${data[code].name}" style="max-height: 70px; margin-right: 5px;">`);
-                neighboursDisplay.innerHTML = `${neighbourNames.join(', ')}<br>${neighbourImages.join('')}`;
+                neighboursDisplay.innerHTML = `<br aria-hidden="true">Neighbours:<hr aria-hidden="true"> ${neighbourNames.join(', ')}<br aria-hidden="true">${neighbourImages.join('')}`;
             }
             neighboursDisplay.style.display = 'block';
         }
