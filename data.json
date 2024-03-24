@@ -243,6 +243,10 @@
     "name": "Estonia",
     "neighbors": ["lv", "ru"]
   },
+  "sz": {
+    "name": "Eswatini",
+    "neighbors": ["za", "mz"]
+  },
   "et": {
     "name": "Ethiopia",
     "neighbors": ["dj", "er", "ke", "so", "sd", "ss"]
@@ -621,7 +625,7 @@
   },
   "ps": {
     "name": "Palestine",
-    "neighbors": ["il", "jo"]
+    "neighbors": ["il", "jo", "eg"]
   },
   "pa": {
     "name": "Panama",
@@ -790,10 +794,6 @@
   "sj": {
     "name": "Svalbard",
     "neighbors": []
-  },
-  "sz": {
-    "name": "Swaziland",
-    "neighbors": ["za", "mz"]
   },
   "se": {
     "name": "Sweden",
