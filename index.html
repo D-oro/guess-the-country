@@ -13,7 +13,7 @@
     <div class="align-left">
         <h1>Guess the Country</h1>
         <img id="countryImage" src="https://staging.teuteuf-assets.pages.dev/data/worldle/countries/XXX/vector.svg" alt="Country Outline">
-        <button onclick="window.location.reload();" class="next">Next Country<span aria-hidden="true" class="icon">&nbsp;🔄</span></button>   
+        <button onclick="window.location.reload();" class="next" id="nextButton">Next Country<span aria-hidden="true" class="icon">&nbsp;🔄</span></button>   
         <span class="input-container">
         <label for="userGuess">Enter your guess:</label>
         <input type="text" id="userGuess" onkeydown="if (event.keyCode === 13) checkGuess()">
@@ -81,6 +81,9 @@
             if (userGuess === correctCountryName.toLowerCase()) {
                 resultMessage.textContent = 'Correct! You guessed the country name.';
                 resultMessage.style.color = '#2c6e30';
+                const nextButton = document.getElementById('nextButton');
+                nextButton.focus();
+                event.preventDefault();
             } else {
                 resultMessage.textContent = 'Nope.'
                 resultMessage.style.color = '#c83247';
