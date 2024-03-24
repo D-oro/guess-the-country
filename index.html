@@ -16,7 +16,7 @@
         <button onclick="window.location.reload();" class="next" id="nextButton">Next Country<span aria-hidden="true" class="icon">&nbsp;🔄</span></button>   
         <span class="input-container">
         <label for="userGuess">Enter your guess:</label>
-        <input type="text" id="userGuess" onkeydown="if (event.keyCode === 13) checkGuess()">
+        <input type="text" id="userGuess" onkeydown="if (event.keyCode === 13) checkGuess()" autofocus>
         <button onclick="checkGuess()" class="check">Check<span aria-hidden="true" class="icon">&nbsp;🌍</span></button>
         </span>
         <p id="result" role="status" aria-live="polite"></p>
