@@ -859,10 +859,6 @@
     "name": "Turks and Caicos Islands",
     "neighbors": []
   },
-  "tv": {
-    "name": "Tuvalu",
-    "neighbors": []
-  },
   "ug": {
     "name": "Uganda",
     "neighbors": ["cd", "ke", "rw", "ss", "tz"]
