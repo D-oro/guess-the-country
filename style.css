@@ -192,6 +192,10 @@ p {
   h1 {
     max-width: 50%;
   }
+  
+  .country-details {
+    width: 50%;
+  }
 
   .sea-icon {
     font-size: 3rem;
